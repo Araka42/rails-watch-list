@@ -1,0 +1,19 @@
+<div class="container">
+  <h1>Welcome to your lists index</h1>
+    <h3>
+      <ol>
+        <% @lists.each do |list| %>
+        <li>
+           <%= link_to list.name, list_path(list) %>
+           <%= link_to "Delete",
+            list_path(list),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
+            <a data-confirm="Are you sure?" rel="nofollow" data-method="delete">
+            </a>
+        </li>
+        <% end %>
+      </ol>
+    </h3>
+    <%= link_to "Create a new list", new_list_path, class: "btn btn-primary" %>
+</div>
